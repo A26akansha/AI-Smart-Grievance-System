@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Smart Grievance Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div style="
+background:#1e1e2f;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:40px;
+">
+
+<a href="/dashboard" style="color:white;text-decoration:none;">
+🏠 Dashboard
+</a>
+
+<a href="/complaint" style="color:white;text-decoration:none;">
+📝 Complaint
+</a>
+
+<a href="/admin" style="color:white;text-decoration:none;">
+👨‍💼 Admin
+</a>
+
+<a href="/logout" style="color:white;text-decoration:none;">
+🚪 Logout
+</a>
+
+</div>
+
+
+<div style="
+width:80%;
+margin:auto;
+text-align:center;
+padding:30px;
+">
+
+<h1 style="color:white;">
+AI Smart Grievance Dashboard
+</h1>
+
+<p style="color:white;">
+Welcome User 🚀
+</p>
+
+<br>
+
+<a href="/complaint">
+<button>
+Add Complaint
+</button>
+</a>
+
+<a href="/admin">
+<button>
+Admin Panel
+</button>
+</a>
+
+<br><br>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+">
+
+<div style="
+background:white;
+padding:20px;
+width:220px;
+border-radius:15px;
+">
+
+<h2>{{ total }}</h2>
+<p>Total Complaints</p>
+
+</div>
+
+<div style="
+background:white;
+padding:20px;
+width:220px;
+border-radius:15px;
+">
+
+<h2>{{ high }}</h2>
+<p>High Priority</p>
+
+</div>
+
+<div style="
+background:white;
+padding:20px;
+width:220px;
+border-radius:15px;
+">
+
+<h2>{{ pending }}</h2>
+<p>Pending Cases</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

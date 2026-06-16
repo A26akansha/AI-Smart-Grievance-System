@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<div style="
+background:#1e1e2f;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:40px;
+">
+
+<a href="/dashboard" style="color:white;text-decoration:none;">
+🏠 Dashboard
+</a>
+
+<a href="/complaint" style="color:white;text-decoration:none;">
+📝 Complaint
+</a>
+
+<a href="/admin" style="color:white;text-decoration:none;">
+👨‍💼 Admin
+</a>
+
+<a href="/logout" style="color:white;text-decoration:none;">
+🚪 Logout
+</a>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Admin Panel 🚀</h1>
+
+    <p>Manage All Complaints</p>
+
+    {% for complaint in complaints %}
+
+    <div class="card">
+
+        <h2>{{ complaint.title }}</h2>
+
+        <p>
+        <b>Description:</b>
+        {{ complaint.description }}
+        </p>
+
+        <p>
+        <b>Category:</b>
+        {{ complaint.category }}
+        </p>
+
+        <p>
+        <b>Priority:</b>
+        {{ complaint.priority }}
+        </p>
+
+        <p>
+        <b>Status:</b>
+        {{ complaint.status }}
+        </p>
+
+        <a href="/solve/{{ complaint.id }}">
+    <button>
+        ✅ Solve
+    </button>
+</a>
+
+<a href="/delete/{{ complaint.id }}">
+    <button>
+        🗑 Delete
+    </button>
+</a>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

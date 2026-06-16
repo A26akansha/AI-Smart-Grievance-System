@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Complaint</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Add Complaint</h1>
+
+    <p>Submit Your Problem</p>
+
+    <form method="POST">
+
+        <input
+        type="text"
+        name="title"
+        placeholder="Complaint Title"
+        required>
+
+        <textarea
+        name="description"
+        placeholder="Write Your Complaint"
+        rows="5"
+        required></textarea>
+
+        <button type="submit">
+            Submit Complaint
+        </button>
+
+    </form>
+
+    <br>
+
+    <h3>
+        {{ message }}
+<br><br>
+
+<h2>Submitted Complaints</h2>
+
+{% for complaint in complaints %}
+
+<div style="
+background:white;
+color:black;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+text-align:left;
+">
+
+<h3>{{ complaint.title }}</h3>
+
+<p>{{ complaint.description }}</p>
+<p>
+<b>AI Category:</b>
+{{ complaint.category }}
+<br>
+
+<b>Priority:</b>
+{{ complaint.priority }}
+<br><br>
+
+<b>Status:</b>
+<span style="
+color:red;
+font-weight:bold;
+">
+
+{{ complaint.status }}
+
+</span>
+</p>
+
+</div>
+
+{% endfor %}
+    </h3>
+
+</div>
+
+</body>
+</html>
